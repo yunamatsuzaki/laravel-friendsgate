@@ -1,0 +1,262 @@
+.image-wrapper {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.detail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-wrapper img {
+  width: 100%; /* 親要素に合わせて幅を100% */
+  height: 100%; /* 親要素に合わせて高さを100% */
+  object-fit: cover; /* 親要素のサイズに合わせて画像を拡大・縮小 */
+  object-position: center; /* 画像の中心を表示 */
+}
+
+
+
+/* MyPage修正 */
+/* update */
+.btn-custom-save {
+  background-color: #40e0d0; 
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn-custom-save:hover {
+  color: #fff;
+  background: linear-gradient(135deg, #9be6de, #bfa0eb) !important; /* グラデーション */
+}
+
+
+/* Delete */
+.btn-danger-custom {
+  background-color: #ff4d4d; /* ボタンの背景色 */
+  color: white ; /* 文字色 */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.btn-danger-custom:hover {
+  background-color: #e60000; /* ホバー時の色 */
+}
+
+/* app.blade */
+body {
+  background-color: #f8fafc;
+  font-family: 'メイリオ', 'Meiryo', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.11px;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.13px;
+  color: #9457EB !important;
+}
+
+main h1 {
+  font-size: 26px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.13px;
+  color: #9457EB !important;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.04px;
+}
+
+big {
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.08px;
+}
+
+caption {
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.08px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #191919;
+}
+
+.samuraimart-login-input {
+  border-radius: 2px;
+  border: solid 1px #b2b2b2;
+  background-color: #ffffff;
+}
+
+.samuraimart-check-label {
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+}
+
+.samuraimart-require-input-label {
+  border-radius: 1px;
+  background-color: #e2001b;
+}
+
+.samuraimart-require-input-label-text {
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+}
+
+.samuraimart-submit-button {
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+  background-color: #40e0d0;
+}
+
+.samuraimart-submit-button:hover {
+  background-color: #40e0d0; /* 背景色の上書き */
+  color: white; /* テキスト色の上書き */
+  opacity: 1; /* 不透明化を強制 */
+}
+
+.samuraimart-login-text {
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #40e0d0;
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff !important;  
+}
+
+/* グラデーションテキストのスタイル */
+.gradient-text {
+  background-image: linear-gradient(to right, #40e0d0, #9457EB);
+  -webkit-background-clip: text; /* 文字に背景をクリップ */
+  background-clip: text; /* 文字に背景をクリップ */
+  color: transparent; /* 文字色を透明に */
+}
+
+.btn-regular {
+  background-color: #40e0d0;
+  color: #fff;
+}
+
+.btn-regular:hover {
+  color: #fff;
+  background: linear-gradient(135deg, #9be6de, #bfa0eb) !important; /* グラデーション */
+}
+
+/* ボタンがクリックされたときの色 */
+a.btn.btn-regular:active,
+a.btn.btn-regular:focus {
+    color: #fff !important;
+    background: linear-gradient(135deg,  #9be6de, #bfa0eb) !important; /* グラデーション */
+
+}
+
+
+/* ページネーションの色変更 */
+.pagination .page-link {
+  background-color: #fff;  /* 背景色 */
+  color: #9457EB;             /* 文字色 */
+  border: 1px solid #9457EB;  /* 枠線の色 */
+}
+
+.pagination .page-link:hover {
+  background-color: #9457EB;  /* ホバー時の背景色 */
+  color: #ffffff;          /* ホバー時の文字色 */
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #9457EB;  /* アクティブページの背景色 */
+  border-color: #9457EB;      /* アクティブページの枠線色 */
+  color: #ffffff; 
+}
+
+
+/* フラッシュメッセージの色をカスタマイズ */
+.alert-custom-success {
+  background:#40e0d0;
+  color: #fff; 
+  font-size: 18px; 
+  padding: 15px; /* パディングを調整 */
+  border-radius: 5px; /* 角を丸く */
+  border: 1px solid #40e0d0; /* ボーダーを追加 */
+  margin: 0 40px 0 40px;
+}
+
+.alert-custom-danger {
+  background-color: #f7d4d4; /* ライトレッド */
+  color: #721c24; /* ダークレッド */
+  font-size: 18px;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #f5c6cb;
+}

@@ -31,7 +31,7 @@
                                         @if($post->image)
                                             <img src="{{ asset('storage/images/' . $post->image) }}" alt="投稿画像" class="img-fluid" />
                                         @else
-                                            <img src="{{ asset('storage/images/no_image.png') }}" alt="デフォルト画像" class="img-fluid" />
+                                            <img src="{{ asset('img/no_image.png') }}" alt="デフォルト画像" class="img-fluid" />
                                         @endif
                                     </div>
                                     <div class="card-body">

@@ -8,12 +8,12 @@
         <div class="d-flex">
             <!-- 画像部分 -->
             <div class="image-wrapper" style="margin-right: 20px; flex-shrink: 0;">
-                @if($post->image)
-                    <img src="{{ asset('storage/images/' . $post->image) }}" alt="投稿画像" class="detail-image" style="max-width: 300px; object-fit: cover; border-radius: 8px;">
-                @else
-                    <img src="{{ asset('storage/images/no_image.png') }}" alt="デフォルト画像" class="detail-image" style="max-width: 300px; object-fit: cover; border-radius: 8px;">
-                @endif
-            </div>
+            @if($post->image)
+                <img src="{{ asset('storage/images/' . $post->image) }}" alt="投稿画像" class="detail-image" style="max-width: 300px; object-fit: cover; border-radius: 8px;">
+            @else
+                <img src="{{ asset('img/no_image.png') }}" alt="デフォルト画像" class="detail-image" style="max-width: 300px; object-fit: cover; border-radius: 8px;">
+            @endif
+        </div>
 
             <!-- テキスト部分 -->
             <div class="content-wrapper" style="flex-grow: 1;">

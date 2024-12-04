@@ -17,23 +17,20 @@ class ProfileController extends Controller
     // Myページ
     public function show()
     {
-        // ログインユーザーの投稿を取得（ユーザーが投稿していない場合はnull）
-        $post = auth()->user()->post; // User モデルに定義したリレーションを使う
+        $post = auth()->user()->post;
 
-        // ユーザーとの会話を取得
+        // ランダム画像を取得
+        $randomImages = $this->getRandomImages();
+
         $conversations = Message::where('receiver_id', Auth::id())
             ->orWhere('sender_id', Auth::id())
-            ->with(['sender', 'receiver'])  // 送信者と受信者情報を一緒に取得
-            ->latest() // 新しい順に並べる
+            ->with(['sender', 'receiver'])
+            ->latest()
             ->get()
             ->groupBy(function ($message) {
                 return $message->sender_id == Auth::id() ? $message->receiver_id : $message->sender_id;
             });
 
-        // ランダム画像を取得
-        $randomImages = $this->getRandomImages();
-
-        // ビューに投稿、会話、ランダム画像を渡す
         return view('profile.show', compact('post', 'conversations', 'randomImages'));
     }
 

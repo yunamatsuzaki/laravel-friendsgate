@@ -11,12 +11,11 @@ class PostController extends Controller
 {
     public function index()
     {
-        // 投稿を新しい順に並べて取得
-        $posts = Post::with('user') // 投稿に紐づくユーザーも一緒にロード
-            ->orderBy('created_at', 'desc') // 新しい順
-            ->paginate(9); // ページネーション
+        $posts = Post::with('user')
+            ->orderBy('created_at', 'desc')
+            ->paginate(9);
 
-        // ランダム画像のパスを取得
+        // ランダム画像を取得
         $randomImages = $this->getRandomImages();
 
         return view('posts.index', compact('posts', 'randomImages'));

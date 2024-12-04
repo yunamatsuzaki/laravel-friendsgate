@@ -27,13 +27,14 @@
                         @if($post)
                             <div class="col-md-10">
                                 <div class="card">
-                                <div class="image-wrapper" style="text-align: center;">
-                                    @if($post->image)
-                                        <img src="{{ asset('storage/images/' . $post->image) }}" alt="投稿画像" class="img-fluid" />
-                                    @else
-                                        <img src="{{ asset('img/' . $randomImages[array_rand($randomImages)]->getFilename()) }}" alt="ランダム画像" class="img-fluid" />
-                                    @endif
-                                </div>
+                                    <div class="image-wrapper" style="text-align: center;">
+                                        @if($post->image)
+                                            <img src="{{ asset('storage/images/' . $post->image) }}" alt="投稿画像" class="img-fluid" />
+                                        @elseif($randomImages && count($randomImages) > 0)
+                                            <?php $randomImage = $randomImages[array_rand($randomImages)]; ?>
+                                            <img src="{{ asset('img/' . basename($randomImage->getFilename())) }}" alt="ランダム画像" class="img-fluid" />
+                                        @endif
+                                    </div>
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $post->title }}</h5>
                                         <p class="card-text"><strong>年齢:</strong> {{ $post->age }}歳</p>

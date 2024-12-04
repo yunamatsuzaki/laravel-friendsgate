@@ -28,11 +28,11 @@
                             <div class="col-md-10">
                                 <div class="card">
                                     <div class="image-wrapper" style="text-align: center;">
-                                        @if($post->image)
-                                            <img src="{{ asset('storage/images/' . $post->image) }}" alt="投稿画像" class="img-fluid" />
-                                        @else
-                                            <img src="{{ asset('img/no_image.png') }}" alt="デフォルト画像" class="img-fluid" />
-                                        @endif
+                                    @if($post->image)
+                                        <img src="{{ asset('storage/images/' . $post->image) }}" alt="投稿画像" class="img-fluid" />
+                                    @else
+                                        <img src="{{ asset('images/default/' . $post->random_default_image) }}" alt="デフォルト画像" class="img-fluid" />
+                                    @endif
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $post->title }}</h5>

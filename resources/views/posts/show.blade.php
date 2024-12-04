@@ -11,7 +11,7 @@
                 @if($post->image)
                     <img src="{{ asset('storage/images/' . $post->image) }}" alt="投稿画像" class="detail-image">
                 @else
-                    <img src="{{ asset('storage/images/no_image.png') }}" alt="デフォルト画像" class="detail-image">
+                    <img src="{{ asset('images/default/' . $post->random_default_image) }}" alt="デフォルト画像" class="detail-image">
                 @endif
             </div>
 

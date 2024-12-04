@@ -13,7 +13,7 @@
                             @if($post->image)
                                 <img src="{{ asset('storage/images/' . $post->image) }}" class="detail-image" alt="投稿画像">
                             @else
-                                <img src="{{ asset('img/no_image.png') }}" class="detail-image" alt="デフォルト画像">
+                                <img src="{{ asset('img/' . $randomImages[array_rand($randomImages)]->getFilename()) }}" class="detail-image" alt="デフォルト画像">
                             @endif
                         </div>
                         <div class="card-body">

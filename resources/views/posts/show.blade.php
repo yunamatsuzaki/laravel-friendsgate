@@ -5,19 +5,19 @@
         <h1 class="mb-4">投稿詳細</h1>
         <a href="{{ route('posts.index') }}" class="btn btn-secondary mb-4">&lt; 戻る</a>
 
-        <div class="d-flex">
+        <div class="post-detail d-flex flex-wrap">
             <!-- 画像部分 -->
-            <div class="image-wrapper" style="margin-right: 20px; flex-shrink: 0;">
-            @if($post->image)
-                <img src="{{ asset('storage/images/' . $post->image) }}" alt="投稿画像" class="detail-image" style="max-width: 300px; object-fit: cover; border-radius: 8px;">
-            @else
-                <img src="{{ asset('img/no_image.png') }}" alt="デフォルト画像" class="detail-image" style="max-width: 300px; object-fit: cover; border-radius: 8px;">
-            @endif
-        </div>
+            <div class="image-wrapper">
+                @if($post->image)
+                    <img src="{{ asset('storage/images/' . $post->image) }}" alt="投稿画像" class="detail-image">
+                @else
+                    <img src="{{ asset('storage/images/no_image.png') }}" alt="デフォルト画像" class="detail-image">
+                @endif
+            </div>
 
             <!-- テキスト部分 -->
-            <div class="content-wrapper" style="flex-grow: 1;">
-            <h2> {{ $post->user->name }}の投稿</h2>
+            <div class="content-wrapper">
+                <h2>{{ $post->user->name }}の投稿</h2>
                 <h3>{{ $post->title }}</h3>
                 <p><strong>地域:</strong> {{ $post->area }}</p>
                 <p><strong>年齢:</strong> {{ $post->age }}歳</p>

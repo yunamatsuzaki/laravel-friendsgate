@@ -260,3 +260,25 @@ a.btn.btn-regular:focus {
   border-radius: 5px;
   border: 1px solid #f5c6cb;
 }
+
+/* 投稿詳細ページ用レイアウト */
+.post-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.content-wrapper {
+  flex: 2;
+}
+
+/* スマホ用レイアウト */
+@media (max-width: 768px) {
+  .post-detail {
+      flex-direction: column;
+  }
+
+  .image-wrapper {
+      margin-bottom: 20px;
+  }
+}

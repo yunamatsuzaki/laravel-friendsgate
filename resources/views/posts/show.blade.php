@@ -7,13 +7,13 @@
 
         <div class="post-detail d-flex flex-wrap">
             <!-- 画像部分 -->
-            <div class="image-wrapper">
-                @if($post->image)
-                    <img src="{{ asset('storage/images/' . $post->image) }}" alt="投稿画像" class="detail-image">
-                @else
-                    <img src="{{ asset('images/default/' . $post->random_default_image) }}" alt="デフォルト画像" class="detail-image">
-                @endif
-            </div>
+        <div class="image-wrapper">
+            @if($post->image)
+                <img src="{{ asset('storage/images/' . $post->image) }}" class="detail-image" alt="投稿画像">
+            @else
+                <img src="{{ asset('img/' . $randomImages[array_rand($randomImages)]->getFilename()) }}" class="detail-image" alt="ランダム画像">
+            @endif
+        </div>
 
             <!-- テキスト部分 -->
             <div class="content-wrapper">

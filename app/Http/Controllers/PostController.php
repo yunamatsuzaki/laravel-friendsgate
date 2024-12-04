@@ -24,7 +24,9 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        return view('posts.show', compact('post'));
+        $randomImages = $this->getRandomImages(); // これを追加してランダム画像を取得
+
+        return view('posts.show', compact('post', 'randomImages'));
     }
 
     public function create()

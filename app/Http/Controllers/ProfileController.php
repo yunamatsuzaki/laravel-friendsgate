@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\File;
 use App\Models\User;
 use App\Models\Message;
 
@@ -29,8 +30,11 @@ class ProfileController extends Controller
                 return $message->sender_id == Auth::id() ? $message->receiver_id : $message->sender_id;
             });
 
-        // ビューに投稿と会話を渡す
-        return view('profile.show', compact('post', 'conversations'));
+        // ランダム画像を取得
+        $randomImages = $this->getRandomImages();
+
+        // ビューに投稿、会話、ランダム画像を渡す
+        return view('profile.show', compact('post', 'conversations', 'randomImages'));
     }
 
     /**
@@ -78,5 +82,20 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+    /**
+     * Get a list of random images from the 'img' directory.
+     */
+    private function getRandomImages()
+    {
+        $imagesPath = public_path('img');
+        $allImages = File::files($imagesPath);
+
+        $validImages = array_filter($allImages, function ($file) {
+            return in_array($file->getExtension(), ['jpg', 'jpeg', 'png', 'gif']);
+        });
+
+        return $validImages;
     }
 }

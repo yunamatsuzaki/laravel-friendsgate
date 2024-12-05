@@ -57,6 +57,7 @@ class PostController extends Controller
         $post->area = $request->area;
         $post->age = $request->age;
 
+
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('public/images');
             $post->image = basename($path);
@@ -88,6 +89,7 @@ class PostController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'area' => 'nullable|string|max:255',
             'age' => 'nullable|integer|min:0',
+
         ]);
 
         $post->title = $request->title;

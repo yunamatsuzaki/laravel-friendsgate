@@ -11,7 +11,13 @@ class Message extends Model
     use HasFactory;
 
     protected $fillable = [
-        'sender_id', 'receiver_id', 'content', 'location', 'meeting_time'
+        'sender_id',
+        'receiver_id',
+        'location',
+        'latitude',
+        'longitude',
+        'meeting_time',
+        'content',
     ];
 
     // 送信者とのリレーション

@@ -36,6 +36,31 @@
                     <strong>会う日時:</strong> {{ \Carbon\Carbon::parse($message->meeting_time)->format('Y年m月d日 H:i') }}
                 </p>
                 @endif
+
+                <!-- Googleマップ表示 -->
+                @if($message->latitude && $message->longitude)
+                <div class="mt-3" id="map-{{ $message->id }}" style="height: 300px;"></div>
+                <script>
+                    function initMap() {
+                        const mapElement = document.getElementById('map-{{ $message->id }}');
+                        const coordinates = { lat: {{ $message->latitude }}, lng: {{ $message->longitude }} };
+
+                        const map = new google.maps.Map(mapElement, {
+                            center: coordinates,
+                            zoom: 15
+                        });
+
+                        new google.maps.Marker({
+                            position: coordinates,
+                            map: map,
+                            title: '{{ $message->location }}'
+                        });
+                    }
+
+                    window.onload = initMap;
+                </script>
+                @endif
+
                 <small>{{ $message->created_at->format('Y-m-d H:i') }}</small>
             </div>
             @endforeach
@@ -54,4 +79,8 @@
         <button type="submit" class="btn btn-regular">送信</button>
     </form>
 </main>
+
+{{-- Google Maps APIのスクリプト --}}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDf4m6hFXLLLbQ0786HJ4mZ8-zVvxbwyQs&callback=initMap&libraries=places" async defer></script>
+
 @endsection

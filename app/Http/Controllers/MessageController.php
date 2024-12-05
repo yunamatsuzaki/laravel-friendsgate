@@ -15,6 +15,8 @@ class MessageController extends Controller
         $request->validate([
             'content' => 'required|string|max:255',
             'location' => 'nullable|string|max:255',
+            'latitude' => 'nullable|numeric|between:-90,90', // 緯度バリデーション
+            'longitude' => 'nullable|numeric|between:-180,180', // 経度バリデーション
             'meeting_time' => 'nullable|date',
         ]);
 
@@ -22,6 +24,8 @@ class MessageController extends Controller
         $message->sender_id = Auth::id();
         $message->receiver_id = $request->receiver_id;
         $message->location = $request->location;
+        $message->latitude = $request->latitude; // 緯度を保存
+        $message->longitude = $request->longitude; // 経度を保存
         $message->meeting_time = $request->meeting_time;
         $message->content = $request->content;
         $message->save();

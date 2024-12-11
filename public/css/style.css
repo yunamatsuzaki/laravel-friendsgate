@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 .image-wrapper {
   width: 200px;
   height: 200px;
@@ -16,10 +18,10 @@
 }
 
 .image-wrapper img {
-  width: 100%; /* 親要素に合わせて幅を100% */
-  height: 100%; /* 親要素に合わせて高さを100% */
-  object-fit: cover; /* 親要素のサイズに合わせて画像を拡大・縮小 */
-  object-position: center; /* 画像の中心を表示 */
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  object-position: center; 
 }
 
 
@@ -222,7 +224,7 @@ a.btn.btn-regular:focus {
 }
 
 
-/* ページネーションの色変更 */
+/* ページネーションの色変更 */ 
 .pagination .page-link {
   background-color: #fff;  /* 背景色 */
   color: #9457EB;             /* 文字色 */
@@ -239,7 +241,6 @@ a.btn.btn-regular:focus {
   border-color: #9457EB;      /* アクティブページの枠線色 */
   color: #ffffff; 
 }
-
 
 /* フラッシュメッセージの色をカスタマイズ */
 .alert-custom-success {
@@ -282,3 +283,4 @@ a.btn.btn-regular:focus {
       margin-bottom: 20px;
   }
 }
+

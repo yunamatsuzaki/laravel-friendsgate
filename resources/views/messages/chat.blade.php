@@ -21,11 +21,11 @@
             @foreach($messages as $message)
             <div class="list-group-item {{ $message->sender_id === Auth::id() ? 'text-end' : '' }}">
                 <strong>{{ $message->sender_id === Auth::id() ? 'あなた' : $chatPartner->name }}</strong>
-                <p class="mb-1">{{ $message->content }}</p>
+                <p class="mb-1">{{ $message->content }}</p>&nbsp; &nbsp; &nbsp; 
 
                 <!-- 会う場所の表示 -->
                 @if($message->location)
-                <p class="text-muted mb-1">
+                <p class="text-muted mb-1"> 
                     <strong>会う場所:</strong> {{ $message->location }}
                 </p>
                 @endif

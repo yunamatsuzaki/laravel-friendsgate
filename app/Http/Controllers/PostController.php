@@ -9,13 +9,30 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::with('user')
-            ->orderBy('created_at', 'desc')
-            ->paginate(9);
+        // 絞り込みのためのクエリビルダーを作成
+        $query = Post::with('user');
 
-        // ランダム画像を取得
+        // 年齢の絞り込み
+        if ($request->filled('age')) {
+            $query->where('age', $request->age);
+        }
+
+        // エリアの絞り込み（部分一致）
+        if ($request->filled('area')) {
+            $query->where('area', 'LIKE', '%' . $request->area . '%');
+        }
+
+        // タイトルの絞り込み（部分一致）
+        if ($request->filled('title')) {
+            $query->where('title', 'LIKE', '%' . $request->title . '%');
+        }
+
+        // 結果の取得とページネーション
+        $posts = $query->orderBy('created_at', 'desc')->paginate(9);
+
+        // ランダム画像の取得
         $randomImages = $this->getRandomImages();
 
         return view('posts.index', compact('posts', 'randomImages'));
